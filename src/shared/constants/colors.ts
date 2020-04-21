@@ -7,10 +7,21 @@ const warningHover = "#FFB300";
 const warningActive = "#FFA000";
 
 const disableDefault = "#CFD8DC";
-const disableActive = "##90A4AE";
 const disableHover = "B0BEC5";
+const disableActive = "#90A4AE";
 
-export const primary = {
+const infoDefault = "#2196F3";
+const infoHover = "#1E88E5";
+const infoActive = "#1976D2";
+
+const deselectedDefault = "#CFD8DC";
+const deselectedHover = "#B0BEC5";
+const deseletedActive = "#90A4AE";
+
+const black = "#212121";
+const grey = "#F5F5F5";
+
+export const colors = {
   success: {
     successActive,
     successDefault,
@@ -27,4 +38,17 @@ export const primary = {
     disableActive,
     disableHover,
   },
+
+  info: {
+    infoActive,
+    infoDefault,
+    infoHover,
+  },
+  deselected: {
+    deselectedDefault,
+    deselectedHover,
+    deseletedActive,
+  },
+  black,
+  grey,
 };
