@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   makeStyles,
   Drawer,
@@ -13,46 +13,51 @@ import {
   SvgIconProps,
   IconButton,
   Box,
-} from "@material-ui/core";
-import { LinkProps, Link } from "react-router-dom";
-import { ExpandLess, ExpandMore, DoubleArrow } from "@material-ui/icons";
-import { CornerBox } from "./CornerBox";
-import { colors } from "../../shared/constants/colors";
+} from '@material-ui/core'
+import { LinkProps, Link } from 'react-router-dom'
+import { ExpandLess, ExpandMore, DoubleArrow } from '@material-ui/icons'
+import { CornerBox } from './CornerBox'
+import { colors } from '../../shared/constants/colors'
 
 type MenuItem = {
-  label: string;
-  icon: React.ReactElement<SvgIconProps>;
-  items?: NestedMenuItem[];
-};
+  label: string
+  icon: React.ReactElement<SvgIconProps>
+  items?: NestedMenuItem[]
+}
 
 type NestedMenuItem = {
-  linkTo: string; // TODO generalize | разрешить только роутер
-  label: string;
-};
+  linkTo: string // TODO generalize | разрешить только роутер
+  label: string
+}
 
 type Props = {
-  logoSrc: React.SVGProps<SVGSVGElement> | string;
-  items: MenuItem[];
-} & DrawerProps;
+  logoSrc: string
+  miniLogoSrc: string
+  items: MenuItem[]
+} & DrawerProps
 
-export const SidebarMenu: React.FC<Props> = ({ logoSrc, items }) => {
-  const [isMinimized, setIsMinimized] = useState(false);
-  const classes = useStyles();
+export const SidebarMenu: React.FC<Props> = ({
+  logoSrc,
+  miniLogoSrc,
+  items,
+}) => {
+  const [isMinimized, setIsMinimized] = useState(false)
+  const classes = useStyles()
   const [itemsBooleanMap, setItemsBooleanMap] = useState(
-    Array(items.length).fill(false)
-  );
+    Array(items.length).fill(false),
+  )
   //   const [someItemIsOpen, setSomeItemIsOpen] = useState(false);
 
   const updateListItemState = (index: number) => {
-    const arr = [...itemsBooleanMap];
+    const arr = [...itemsBooleanMap]
     //TODO отрефакторить. Закрываем другой любой открытый список, кроме текущего
     const otherOpeneListIndex = arr.findIndex(
-      (item, _index) => item === true && _index !== index
-    );
-    if (otherOpeneListIndex > -1) arr[otherOpeneListIndex] = false;
-    arr[index] = !arr[index];
-    setItemsBooleanMap(arr);
-  };
+      (item, _index) => item === true && _index !== index,
+    )
+    if (otherOpeneListIndex > -1) arr[otherOpeneListIndex] = false
+    arr[index] = !arr[index]
+    setItemsBooleanMap(arr)
+  }
 
   return (
     <Drawer
@@ -66,16 +71,16 @@ export const SidebarMenu: React.FC<Props> = ({ logoSrc, items }) => {
     >
       <Box className={classes.subheader}>
         <CornerBox />
-        <img src={logoSrc} />
+        <img src={isMinimized ? miniLogoSrc : logoSrc} />
         <IconButton
           edge="start"
           onClick={(e) => {
-            setIsMinimized(!isMinimized);
+            setIsMinimized(!isMinimized)
           }}
           className={classes.subheaderArrow}
         >
           <DoubleArrow
-            style={isMinimized ? { transform: "rotate(180deg)" } : {}}
+            style={isMinimized ? { transform: 'rotate(180deg)' } : {}}
           />
         </IconButton>
       </Box>
@@ -103,8 +108,8 @@ export const SidebarMenu: React.FC<Props> = ({ logoSrc, items }) => {
             key={index}
             onClick={(e) => {
               //   if(itemsBooleanMap[index] === true)
-              e.stopPropagation();
-              updateListItemState(index);
+              e.stopPropagation()
+              updateListItemState(index)
             }}
             button
           >
@@ -147,81 +152,81 @@ export const SidebarMenu: React.FC<Props> = ({ logoSrc, items }) => {
         ))}
       </List>
     </Drawer>
-  );
-};
+  )
+}
 
 const useStyles = makeStyles((theme) => ({
   paperList: {
-    backgroundColor: "#252F34",
+    backgroundColor: '#252F34',
     flexShrink: 0,
-    whiteSpace: "nowrap",
+    whiteSpace: 'nowrap',
   },
   drawerIsOpen: {
-    transition: theme.transitions.create("width", {
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   drawerIsClose: {
-    transition: theme.transitions.create("width", {
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    overflowX: "hidden",
+    overflowX: 'hidden',
     width: theme.spacing(7) + 1,
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       width: theme.spacing(8) + 1,
     },
   },
   listItem: {
-    color: "#fff",
+    color: '#fff',
     lineHeight: 18,
-    fontSize: "14px",
-    "&:hover": {
+    fontSize: '14px',
+    '&:hover': {
       color: colors.info.infoDefault,
-      background: "#111B20",
-      "& svg": {
+      background: '#111B20',
+      '& svg': {
         fill: colors.info.infoDefault,
       },
     },
   },
   nestedList: {
-    position: "fixed",
-    backgroundColor: "#252F34",
+    position: 'fixed',
+    backgroundColor: '#252F34',
     boxShadow:
-      "0px 2px 4px rgba(0, 0, 0, 0.2), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.14)",
-    borderRadius: "0px 4px 4px 0px",
-    marginLeft: "15px",
+      '0px 2px 4px rgba(0, 0, 0, 0.2), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.14)',
+    borderRadius: '0px 4px 4px 0px',
+    marginLeft: '15px',
   },
   listItemNested: {
-    "& > div > span > a": {
-      color: "#fff",
-      textDecoration: "none",
+    '& > div > span > a': {
+      color: '#fff',
+      textDecoration: 'none',
     },
-    "&:hover > div > span > a": {
+    '&:hover > div > span > a': {
       color: colors.info.infoDefault,
     },
   },
   listItemIcon: {
-    minWidth: "50px",
-    color: "#fff",
+    minWidth: '50px',
+    color: '#fff',
   },
   subheader: {
-    position: "relative",
-    display: "flex",
-    height: "80px",
-    "& > img": {
-      position: "absolute",
-      top: "20px",
-      left: "30px",
+    position: 'relative',
+    display: 'flex',
+    height: '80px',
+    '& > img': {
+      position: 'absolute',
+      top: '20px',
+      left: '30px',
     },
   },
   subheaderArrow: {
-    position: "absolute",
-    right: "0px",
-    top: "15px",
-    "& > span > svg": {
-      fill: "white",
+    position: 'absolute',
+    right: '0px',
+    top: '15px',
+    '& > span > svg': {
+      fill: 'white',
     },
   },
-}));
+}))

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "../Button";
+import React, { useState, useEffect } from 'react'
+import { Button } from '../Button'
 import {
   Select,
   MenuItem,
@@ -11,22 +11,22 @@ import {
   ListItem,
   Theme,
   ListItemText,
-} from "@material-ui/core";
-import { KeyboardArrowDown } from "@material-ui/icons";
-import { TextField } from "../TextField";
+} from '@material-ui/core'
+import { KeyboardArrowDown } from '@material-ui/icons'
+import { TextField } from '../TextField'
 
 type ListItemType = {
-  label: string;
-  value: any;
-};
+  label: string
+  value: any
+}
 
 type Props = {
-  labelText: string;
+  labelText: string
   // id: string;
-  labelId?: string;
-  items: ListItemType[];
-  handleSelectItem?: (item: ListItemType) => void;
-};
+  labelId?: string
+  items: ListItemType[]
+  handleSelectItem?: (item: ListItemType) => void
+}
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -36,9 +36,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     minWidth: 165,
   },
   listItemText: {
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
   },
-}));
+}))
 
 export const Dropdown: React.FC<Props> = ({
   items,
@@ -47,14 +47,14 @@ export const Dropdown: React.FC<Props> = ({
   labelText,
   labelId,
 }) => {
-  const classes = useStyles();
-  const [listIsOpen, setListIsOpen] = useState(false);
-  const [currentItem, setCurrentItem] = useState<ListItemType | null>(null);
+  const classes = useStyles()
+  const [listIsOpen, setListIsOpen] = useState(false)
+  const [currentItem, setCurrentItem] = useState<ListItemType | null>(null)
   const onSelectItem = (item: ListItemType) => {
-    setCurrentItem(item);
-    setListIsOpen(false);
-    if (handleSelectItem) handleSelectItem(item);
-  };
+    setCurrentItem(item)
+    setListIsOpen(false)
+    if (handleSelectItem) handleSelectItem(item)
+  }
 
   return (
     <FormControl id={id} className={classes.formControl}>
@@ -72,7 +72,7 @@ export const Dropdown: React.FC<Props> = ({
               <ListItem
                 key={index}
                 onClick={() => {
-                  onSelectItem(item);
+                  onSelectItem(item)
                 }}
                 className={classes.listItemText}
               >
@@ -82,5 +82,5 @@ export const Dropdown: React.FC<Props> = ({
         </List>
       </div>
     </FormControl>
-  );
-};
+  )
+}
