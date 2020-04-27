@@ -17,7 +17,7 @@ import { TextField } from '../TextField'
 
 type ListItemType = {
   label: string
-  value: any
+  value: unknown
 }
 
 type Props = {
@@ -57,7 +57,7 @@ export const Dropdown: React.FC<Props> = ({
   }
 
   return (
-    <FormControl id={id} className={classes.formControl}>
+    <FormControl className={classes.formControl}>
       <Button
         endIcon={<KeyboardArrowDown />}
         variant="contained"

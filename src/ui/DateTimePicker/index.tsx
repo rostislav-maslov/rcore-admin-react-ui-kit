@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   DateTimePicker as MuiDateTimePicker,
   DateTimePickerProps,
   MuiPickersUtilsProvider,
-} from "@material-ui/pickers";
-import ruLocale from "date-fns/locale/ru";
-import DateFnsUtils from "@date-io/date-fns";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core";
-import { colors } from "../../shared/constants/colors";
+} from '@material-ui/pickers'
+import ruLocale from 'date-fns/locale/ru'
+import DateFnsUtils from '@date-io/date-fns'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+import { colors } from '../../shared/constants/colors'
 
 type Props = {
-  value: Date;
-  onAccept?: (date: Date | null) => void;
-} & Omit<DateTimePickerProps, "value" | "onAccept" | "onChange">;
+  value: Date
+  onAccept?: (date: Date | null) => void
+} & Omit<DateTimePickerProps, 'value' | 'onAccept' | 'onChange'>
 
 export const DateTimePicker: React.FC<Props> = ({
   value = new Date(),
   onAccept,
   ...other
 }) => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(value);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(value)
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ruLocale}>
       <MuiThemeProvider theme={theme}>
@@ -36,8 +36,8 @@ export const DateTimePicker: React.FC<Props> = ({
         />
       </MuiThemeProvider>
     </MuiPickersUtilsProvider>
-  );
-};
+  )
+}
 
 const theme = createMuiTheme({
   overrides: {
@@ -45,11 +45,11 @@ const theme = createMuiTheme({
       dayLabel: {
         color: colors.deselected.deselectedDefault,
         fontWeight: 500,
-        fontSize: "16px",
+        fontSize: '16px',
       },
       switchHeader: {
-        "& p": {
-          color: "#000",
+        '& p': {
+          color: '#000',
           fontWeight: 500,
         },
       },
@@ -58,11 +58,11 @@ const theme = createMuiTheme({
       day: {
         color: colors.black,
         fontWeight: 500,
-        "&:hover": {
+        '&:hover': {
           border: `1px solid ${colors.info.infoDefault}`,
           color: colors.info.infoDefault,
-          borderRadius: "50%",
-          backgroundColor: "transparent",
+          borderRadius: '50%',
+          backgroundColor: 'transparent',
         },
       },
       daySelected: {
@@ -90,27 +90,27 @@ const theme = createMuiTheme({
     },
     MuiPickersTimePickerToolbar: {
       separator: {
-        color: "#000",
+        color: '#000',
       },
     },
     MuiInputLabel: {
       root: {
-        color: "#212121",
+        color: '#212121',
       },
       focused: {
-        "&:not(.Mui-error):not(.Mui-disabled)": {
+        '&:not(.Mui-error):not(.Mui-disabled)': {
           color: `${colors.info.infoDefault} !important`,
         },
       },
     },
     MuiOutlinedInput: {
       root: {
-        "&:hover:not(.Mui-error):not(.Mui-disabled) $notchedOutline": {
+        '&:hover:not(.Mui-error):not(.Mui-disabled) $notchedOutline': {
           borderColor: `${colors.info.infoDefault} !important`,
         },
       },
       focused: {
-        "&:not(.Mui-error):not(.Mui-disabled) $notchedOutline": {
+        '&:not(.Mui-error):not(.Mui-disabled) $notchedOutline': {
           borderColor: `${colors.info.infoDefault} !important`,
         },
       },
@@ -119,15 +119,15 @@ const theme = createMuiTheme({
       },
 
       adornedStart: {
-        "& > svg": {
-          marginRight: "10px",
+        '& > svg': {
+          marginRight: '10px',
         },
       },
       adornedEnd: {
-        "& > svg": {
-          marginLeft: "10px",
+        '& > svg': {
+          marginLeft: '10px',
         },
       },
     },
   },
-});
+})

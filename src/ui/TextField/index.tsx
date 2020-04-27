@@ -1,40 +1,40 @@
-import React from "react";
+import React from 'react'
 import {
   TextField as MaterialTextField,
   makeStyles,
   TextFieldProps,
-} from "@material-ui/core";
-import { colors } from "../../shared/constants/colors";
-import { SvgIconComponent } from "@material-ui/icons";
+} from '@material-ui/core'
+import { colors } from '../../shared/constants/colors'
+import { SvgIconComponent } from '@material-ui/icons'
 
 type Props = {
-  label?: string;
-  iconStart?: React.ReactElement<SvgIconComponent>;
-  iconEnd?: React.ReactElement<SvgIconComponent>;
-  type?: string;
-  error?: boolean;
-  placeholder?: string;
-  helperText?: string;
-  variant?: "outlined" | "text";
-} & TextFieldProps;
+  label?: string
+  iconStart?: React.ReactElement<SvgIconComponent>
+  iconEnd?: React.ReactElement<SvgIconComponent>
+  type?: string
+  error?: boolean
+  placeholder?: string
+  helperText?: string
+  variant?: 'outlined' | 'text'
+} & TextFieldProps
 
 const useStyles = makeStyles({
   root: {},
   inputLabelRoot: {
-    color: "#212121",
+    color: '#212121',
   },
   inputLabelFocused: {
-    "&:not(.Mui-error):not(.Mui-disabled)": {
+    '&:not(.Mui-error):not(.Mui-disabled)': {
       color: `${colors.info.infoDefault} !important`,
     },
   },
   inputRoot: {
-    "&:hover:not(.Mui-error):not(.Mui-disabled) $notchedOutline": {
+    '&:hover:not(.Mui-error):not(.Mui-disabled) $notchedOutline': {
       borderColor: `${colors.info.infoDefault} !important`,
     },
   },
   inputFocused: {
-    "&:not(.Mui-error):not(.Mui-disabled) $notchedOutline": {
+    '&:not(.Mui-error):not(.Mui-disabled) $notchedOutline': {
       borderColor: `${colors.info.infoDefault} !important`,
     },
   },
@@ -43,16 +43,16 @@ const useStyles = makeStyles({
   },
 
   adornedStart: {
-    "& > svg": {
-      marginRight: "10px",
+    '& > svg': {
+      marginRight: '10px',
     },
   },
   adornedEnd: {
-    "& > svg": {
-      marginLeft: "10px",
+    '& > svg': {
+      marginLeft: '10px',
     },
   },
-});
+})
 
 export const TextField: React.FC<Props> = ({
   label,
@@ -63,11 +63,11 @@ export const TextField: React.FC<Props> = ({
   type,
   placeholder,
   helperText,
-  variant = "outlined",
+  variant = 'outlined',
   children,
   ...other
 }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <MaterialTextField
@@ -96,5 +96,5 @@ export const TextField: React.FC<Props> = ({
       variant={variant}
       {...other}
     />
-  );
-};
+  )
+}

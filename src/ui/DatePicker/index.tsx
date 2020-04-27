@@ -1,37 +1,37 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   MuiPickersUtilsProvider,
   //   DatePicker as MaterialDataPicker,
   KeyboardDatePicker,
   Day,
-} from "@material-ui/pickers";
-import ruLocale from "date-fns/locale/ru";
-import DateFnsUtils from "@date-io/date-fns";
+} from '@material-ui/pickers'
+import ruLocale from 'date-fns/locale/ru'
+import DateFnsUtils from '@date-io/date-fns'
 import {
   makeStyles,
   IconButton,
   createMuiTheme,
   ThemeProvider,
-} from "@material-ui/core";
+} from '@material-ui/core'
 import {
   startOfWeek,
   endOfWeek,
   isWithinInterval,
   isSameDay,
   format as _format,
-} from "date-fns";
-import { colors } from "../../shared/constants/colors";
+} from 'date-fns'
+import { colors } from '../../shared/constants/colors'
 
 type Props = {
-  minDate?: Date;
-  maxDate?: Date;
-  invalidDateMessage?: string;
-  minDateMessage?: string;
-  maxDateMessage?: string;
-  format?: string;
-  variant?: "dialog" | "inline" | "static";
-  disabled?: boolean;
-};
+  minDate?: Date
+  maxDate?: Date
+  invalidDateMessage?: string
+  minDateMessage?: string
+  maxDateMessage?: string
+  format?: string
+  variant?: 'dialog' | 'inline' | 'static'
+  disabled?: boolean
+}
 
 const theme = createMuiTheme({
   overrides: {
@@ -39,11 +39,11 @@ const theme = createMuiTheme({
       dayLabel: {
         color: colors.deselected.deselectedDefault,
         fontWeight: 500,
-        fontSize: "16px",
+        fontSize: '16px',
       },
       switchHeader: {
-        "& p": {
-          color: "#000",
+        '& p': {
+          color: '#000',
           fontWeight: 500,
         },
       },
@@ -52,11 +52,11 @@ const theme = createMuiTheme({
       day: {
         color: colors.black,
         fontWeight: 500,
-        "&:hover": {
+        '&:hover': {
           border: `1px solid ${colors.info.infoDefault}`,
           color: colors.info.infoDefault,
-          borderRadius: "50%",
-          backgroundColor: "transparent",
+          borderRadius: '50%',
+          backgroundColor: 'transparent',
         },
       },
       daySelected: {
@@ -75,19 +75,19 @@ const theme = createMuiTheme({
       },
     },
   },
-});
+})
 
 export const DatePicker: React.FC<Props> = ({
   minDate,
   maxDate,
-  invalidDateMessage = "Неккоректная дата",
-  minDateMessage = "Дата не должна быть раньше минимальной даты",
-  maxDateMessage = "Дата не должна быть позже максимальной даты",
-  format = "MM/dd/yyyy",
-  variant = "inline",
+  invalidDateMessage = 'Неккоректная дата',
+  minDateMessage = 'Дата не должна быть раньше минимальной даты',
+  maxDateMessage = 'Дата не должна быть позже максимальной даты',
+  format = 'MM/dd/yyyy',
+  variant = 'inline',
   disabled,
 }) => {
-  const [selectedDate, handleDateChange] = useState<Date | null>(new Date());
+  const [selectedDate, handleDateChange] = useState<Date | null>(new Date())
   //   const classes = useStyles();
 
   //   const renderWeekDay = (date: Date | null, selectedDate: Date | null) => {
@@ -135,8 +135,8 @@ export const DatePicker: React.FC<Props> = ({
         />
       </ThemeProvider>
     </MuiPickersUtilsProvider>
-  );
-};
+  )
+}
 
 // const useStyles = makeStyles((theme) => ({
 //   dayWrapper: {

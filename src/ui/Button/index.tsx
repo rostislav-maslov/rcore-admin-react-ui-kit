@@ -1,22 +1,22 @@
-import React from "react";
-import { Button as MaterialButton, makeStyles } from "@material-ui/core";
-import { colors } from "../../shared/constants/colors";
-import { SvgIconComponent } from "@material-ui/icons";
+import React from 'react'
+import { Button as MaterialButton, makeStyles } from '@material-ui/core'
+import { colors } from '../../shared/constants/colors'
+import { SvgIconComponent } from '@material-ui/icons'
 
 const useStyles = makeStyles({
   root: {
-    borderRightColor: "red",
-    "&.rippleVisible": {
-      background: "red",
+    borderRightColor: 'red',
+    '&.rippleVisible': {
+      background: 'red',
     },
   },
   containedPrimary: {
     backgroundColor: colors.success.successDefault,
-    "&:hover": {
+    '&:hover': {
       backgroundColor: colors.success.successHover,
     },
-    "&$disabled": {
-      color: "#fff",
+    '&$disabled': {
+      color: '#fff',
       backgroundColor: colors.disable.disableActive,
     },
   },
@@ -28,19 +28,19 @@ const useStyles = makeStyles({
   },
   text: {
     color: colors.success.successDefault,
-    "&$disabled": {
+    '&$disabled': {
       color: colors.disable.disableDefault,
     },
   },
-});
+})
 
 type Props = {
-  variant?: "contained" | "text";
-  disabled?: boolean;
-  onClick?: (e?: React.MouseEvent) => void;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-};
+  variant?: 'contained' | 'text'
+  disabled?: boolean
+  onClick?: (e?: React.MouseEvent) => void
+  startIcon?: React.ReactNode
+  endIcon?: React.ReactNode
+}
 
 export const Button: React.FC<Props> = ({
   variant,
@@ -50,7 +50,7 @@ export const Button: React.FC<Props> = ({
   onClick,
   children,
 }) => {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <MaterialButton
       color="primary"
@@ -74,5 +74,5 @@ export const Button: React.FC<Props> = ({
     >
       {children}
     </MaterialButton>
-  );
-};
+  )
+}

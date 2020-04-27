@@ -1,21 +1,21 @@
-import { makeStyles, fade } from "@material-ui/core";
-import { colors } from "./constants/colors";
+import { makeStyles, fade } from '@material-ui/core'
+import { colors } from './constants/colors'
 
 export const defaultComponentThemeBuilder = makeStyles({
   primary: {
     color: colors.deselected.deselectedDefault,
-    "&:hover": {
+    '&:hover': {
       backgroundColor: fade(colors.success.successHover, 0.08),
     },
-    "&$checked": {
+    '&$checked': {
       color: colors.success.successDefault,
-      "&:hover": {
+      '&:hover': {
         backgroundColor: fade(colors.success.successActive, 0.08),
       },
     },
-    "&$disabled": {
+    '&$disabled': {
       color: colors.disable.disableDefault,
-      "&$checked": {
+      '&$checked': {
         color: fade(colors.success.successDefault, 0.6),
       },
     },
@@ -25,4 +25,4 @@ export const defaultComponentThemeBuilder = makeStyles({
   // contained: {
   //   backgroundColor: colors.success.successDefault,
   // },
-});
+})

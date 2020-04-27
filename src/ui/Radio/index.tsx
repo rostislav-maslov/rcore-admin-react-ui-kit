@@ -1,17 +1,17 @@
-import { Radio as RadioInput } from "@material-ui/core";
-import React from "react";
-import { defaultComponentThemeBuilder } from "../../shared/defaultStyle";
+import { Radio as RadioInput } from '@material-ui/core'
+import React from 'react'
+import { defaultComponentThemeBuilder } from '../../shared/defaultStyle'
 
 type Props = {
-  disabled?: boolean;
-  checked?: boolean;
-  required?: boolean;
-  value?: any;
-  onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
-};
+  disabled?: boolean
+  checked?: boolean
+  required?: boolean
+  value?: unknown
+  onChange?: (event: React.FormEvent<HTMLInputElement>) => void
+}
 
 export const Radio: React.FC<Props> = (props) => {
-  const classes = defaultComponentThemeBuilder();
+  const classes = defaultComponentThemeBuilder()
   return (
     <RadioInput
       {...props}
@@ -22,5 +22,5 @@ export const Radio: React.FC<Props> = (props) => {
         checked: classes.checked,
       }}
     />
-  );
-};
+  )
+}

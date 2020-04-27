@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export const CornerBox = (props: React.SVGProps<SVGSVGElement>) => {
   return (
@@ -51,5 +51,5 @@ export const CornerBox = (props: React.SVGProps<SVGSVGElement>) => {
         </filter>
       </defs>
     </svg>
-  );
-};
+  )
+}

@@ -1,17 +1,17 @@
-import React from "react";
-import { Checkbox as CheckboxInput } from "@material-ui/core";
-import { defaultComponentThemeBuilder } from "../../shared/defaultStyle";
+import React from 'react'
+import { Checkbox as CheckboxInput } from '@material-ui/core'
+import { defaultComponentThemeBuilder } from '../../shared/defaultStyle'
 
 type Props = {
-  disabled?: boolean;
-  checked?: boolean;
-  required?: boolean;
-  value?: any;
-  onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
-};
+  disabled?: boolean
+  checked?: boolean
+  required?: boolean
+  value?: unknown
+  onChange?: (event: React.FormEvent<HTMLInputElement>) => void
+}
 
 export const CheckBox: React.FC<Props> = (props) => {
-  const classes = defaultComponentThemeBuilder();
+  const classes = defaultComponentThemeBuilder()
   return (
     <CheckboxInput
       {...props}
@@ -22,5 +22,5 @@ export const CheckBox: React.FC<Props> = (props) => {
         checked: classes.checked,
       }}
     />
-  );
-};
+  )
+}
