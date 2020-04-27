@@ -6,7 +6,7 @@
   "homepage": "https://github.com/rostislav-maslov/rcore-react-admin-ui-kit",
   "main": "index.tsx",
   "scripts": {
-    "build": "react-scripts build",
+    "publish:npm": "set NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src/index.tsx src/ui --out-dir dist --copy-files",
     "start": "start-storybook -p 9009 -s public",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
@@ -19,6 +19,8 @@
     "@material-ui/pickers": "^3.2.10"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
     "@storybook/addon-actions": "^5.3.18",
@@ -32,6 +34,8 @@
     "@types/react-router-dom": "^5.1.4",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.29.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
     "commitizen": "^4.0.4",
     "date-fns": "^2.12.0",
     "eslint": "^6.8.0",
