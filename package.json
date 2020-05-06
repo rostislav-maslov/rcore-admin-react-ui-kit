@@ -63,7 +63,8 @@
     "@material-ui/icons": "<=4.1.1",
     "date-fns": "^2.12.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2"
   },
   "browserslist": {
     "production": [">0.2%", "not dead", "not op_mini all"],
