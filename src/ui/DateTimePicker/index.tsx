@@ -96,10 +96,10 @@ const theme = createMuiTheme({
     MuiInputLabel: {
       root: {
         color: '#212121',
-      },
-      focused: {
-        '&:not(.Mui-error):not(.Mui-disabled)': {
-          color: `${colors.info.infoDefault} !important`,
+        '&$focused': {
+          '&:not(.Mui-error):not(.Mui-disabled)': {
+            color: '#2196F3 !important',
+          },
         },
       },
     },
@@ -108,10 +108,10 @@ const theme = createMuiTheme({
         '&:hover:not(.Mui-error):not(.Mui-disabled) $notchedOutline': {
           borderColor: `${colors.info.infoDefault} !important`,
         },
-      },
-      focused: {
-        '&:not(.Mui-error):not(.Mui-disabled) $notchedOutline': {
-          borderColor: `${colors.info.infoDefault} !important`,
+        '&$focused': {
+          '&:not(.Mui-error):not(.Mui-disabled) $notchedOutline': {
+            borderColor: '#2196F3 !important',
+          },
         },
       },
       notchedOutline: {
